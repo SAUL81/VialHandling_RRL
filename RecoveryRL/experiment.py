@@ -186,22 +186,6 @@ class Experiment:
                     open("task_demos.pkl", "rb"))
                 constraint_demo_data = pickle.load(
                     open("constraint_demos.pkl", "rb"))
-                
-                # Get all violations in front to get as many violations as
-                # possible
-                constraint_demo_data_list_safe = []
-                constraint_demo_data_list_viol = []
-                for i in range(len(constraint_demo_data)):
-                    if constraint_demo_data[i][2] == 1.0:
-                        constraint_demo_data_list_viol.append(
-                            constraint_demo_data[i])
-                    else:
-                        constraint_demo_data_list_safe.append(
-                            constraint_demo_data[i])
-
-                constraint_demo_data = constraint_demo_data_list_viol[:int(
-                    0.5 * self.exp_cfg.num_unsafe_transitions
-                )] + constraint_demo_data_list_safe
                 """end"""
 
             else:
